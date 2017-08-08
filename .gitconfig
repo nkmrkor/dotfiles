@@ -1,0 +1,65 @@
+[user]
+	name = nkmrkor
+	email = kaoru-nakamura2@bm-sms.co.jp
+[push]
+	default = current
+[color]
+  ui = auto
+	diff = auto
+	status = auto
+	branch = auto
+[alias]
+  s = status
+  sh = show
+  so = remote show origin
+  f = fetch
+  a = add
+  ci = commit
+  co = checkout
+  # branch関連
+  b = branch
+  ba = branch -a        # list both remote-tracking and local branches
+# log関連
+  wc = whatchanged         # logに変更されたファイルも一緒に出す
+  ls = log --stat          # logに変更されたファイルも一緒に出す
+  lp = log -p              # diffも一緒に出す
+  la = log --pretty=\"format:%ad %h (%an): %s\" --date=short  # ざっくりログ出す
+  lr = log origin          # originのlog
+  oneline = log --pretty=oneline
+  ranking = shortlog -s -n --no-merges
+  # logをtree表示
+  lg = log --graph --date=short --pretty=format:'%Cgreen%h %cd %Cblue%cn %Creset%s'
+  log-all = log --graph --all --color --pretty='%x09%h %cn%x09%s %Cred%d%Creset'
+  lo = log --graph --oneline
+  # diff関連
+  dm = diff master           # masterとのdiff
+  dw = diff --color-words    # 単語単位でいろつけてdiff
+  dc = diff --cached         # addされているものとのdiff
+  ds = diff --staged         # 同上(1.6.1移行)
+  d1 = diff HEAD~            # HEADから1つ前とdiff
+  d2 = diff HEAD~~           # HEADから2つ前とdiff
+  d3 = diff HEAD~~~          # HEADから3つ前とdiff
+  d4 = diff HEAD~~~~         # HEADから4つ前とdiff
+  d5 = diff HEAD~~~~~        # HEADから5つ前とdiff
+  d10 = diff HEAD~~~~~~~~~~  # HEADから10前とdiff
+  # mergeの際にconflictが起きたファイルを編集
+  edit-unmerged = "!f() { git ls-files --unmerged | cut -f2 | sort -u ; }; vim `f`"
+  # mergeの際にconflictが起きたファイルをadd
+  add-unmerged = "!f() { git ls-files --unmerged | cut -f2 | sort -u ; }; git add `f`"
+  # grep関連
+  gr = grep
+  gn = grep -n
+  # remote関連
+  rp = remote prune # remoteで削除されたローカルブランチを削除する
+	gw = grep -wn
+	#push
+	pushf = push --force-with-lease
+	#delete
+	#bad = branch --merged master | grep -vE '^\*|master$' | xargs -I % git branch -d %
+
+[log]
+	decorate = short
+[ghq]
+	root = /Users/kaoru-nakamura2/source
+[core]
+	editor = vim -c \"set fenc=utf-8\"
